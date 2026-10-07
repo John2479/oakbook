@@ -62,7 +62,7 @@ nav a{margin-right:16px}
     <h2>In short</h2>
     <ul>
       <li>Oakbook doesn't collect your vault contents, usage data or any tracking information.</li>
-      <li>Your passwords are encrypted and stored only on your device.</li>
+      <li>Your vault is encrypted and kept on your device. Copies exist elsewhere only if you make them: an encrypted backup you export, or your iPhone's own backup.</li>
       <li>Your vault never goes online: no accounts, no cloud, no analytics, no ads, and every vault feature works offline. Only Oakbook Pro uses Apple's App Store (see "Internet connections" below).</li>
       <li>We can't see, recover or reset your data, because we never have it.</li>
     </ul>
@@ -88,11 +88,18 @@ nav a{margin-right:16px}
       own background purchase checks. These are handled by Apple and never include your vault or its
       contents.</p>
 
-    <h3>What stays on your device</h3>
-    <p>The logins, notes, two-factor keys and settings you save are kept in one encrypted file on
-      your device. It is protected with strong, industry-standard encryption, using a key made from your
-      master password. Your master password is never stored. The technical details are in the
-      <a href="encryption">Security overview</a>.</p>
+    <h3>Where your data is stored</h3>
+    <p><strong>Your vault:</strong> the logins, notes, two-factor keys and settings you save are kept in one
+      encrypted file in Oakbook's protected storage on your iPhone. It is protected with strong,
+      industry-standard encryption, using a key made from your master password. Your master password is
+      never stored. The technical details are in the <a href="encryption">Security overview</a>.</p>
+    <p><strong>Backups you export:</strong> saved wherever you choose (Files, iCloud Drive, email,
+      AirDrop…). They stay encrypted with your master password. Where you store them, that service's own
+      terms apply. The temporary copy Oakbook makes for sharing is deleted after two minutes.</p>
+    <p><strong>Your iPhone's backups:</strong> iCloud Backup or a computer backup may include the encrypted
+      vault file, still locked with your master password. Your Face ID key is never included.</p>
+    <p><strong>CSV files you import:</strong> these are not encrypted. Oakbook reads them on your device;
+      delete them afterwards.</p>
 
     <h3>Face ID and Touch ID</h3>
     <p>If you turn on biometric unlock, your vault key is kept in your device's Keychain, protected by the
@@ -112,15 +119,6 @@ nav a{margin-right:16px}
     <h3>Clipboard</h3>
     <p>When you copy a password, it is marked to stay on this device only and is cleared automatically
       after a short time you choose.</p>
-
-    <h3>Backups and imports</h3>
-    <p>Encrypted backups you export go only where you send them, and they stay locked with your
-      master password. CSV files you import are read on your device. Delete them afterwards, because
-      CSV files are not encrypted.</p>
-
-    <h3>Device backups</h3>
-    <p>If your device backs itself up (for example to iCloud), the encrypted vault file may be
-      included. It stays encrypted and can't be opened without your master password.</p>
 
     <h3>Children</h3>
     <p>The app collects no information from anyone, including children.</p>
