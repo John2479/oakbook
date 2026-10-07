@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Page not found · Oakbook</title>
+<meta name="description" content="Oakbook is an offline password manager for iPhone. No accounts, no cloud, no tracking.">
+<link rel="icon" href="/oakbook/icon.png">
+<style>
+/* Layout: a single readable column, like a well-set page in the Oakbook ledger; summary card first, then the policy, then support. */
+:root{
+  --bg:#F6F7F2; --paper:#FFFFFF; --ink:#1C231F; --muted:#56605A; --line:#D9DED6;
+  --oak:#2C6249; --oak-soft:#E3EFE7; --parch:#F3E9D2;
+  --display:"New York","Iowan Old Style",Georgia,"Times New Roman",serif;
+  --body:-apple-system,BlinkMacSystemFont,system-ui,"Segoe UI",Roboto,sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#101512; --paper:#171D19; --ink:#E3E8E2; --muted:#A9B3AC; --line:#2C3530;
+  --oak:#8FD1B2; --oak-soft:#1E3329; --parch:#3A3324; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#101512; --paper:#171D19; --ink:#E3E8E2; --muted:#A9B3AC; --line:#2C3530;
+  --oak:#8FD1B2; --oak-soft:#1E3329; --parch:#3A3324; color-scheme:dark}
+*{box-sizing:border-box}
+html,body{background:var(--bg);color:var(--ink)}
+body{font-family:var(--body);font-size:17px;line-height:1.6;padding-inline:16px;padding-block:40px 64px}
+main{max-width:680px;margin:0 auto;display:flex;flex-direction:column;gap:40px}
+header{display:flex;align-items:center;gap:16px}
+header svg{width:64px;height:64px;border-radius:15px;flex:none}
+h1{font-family:var(--display);font-weight:600;font-size:clamp(28px,6vw,38px);line-height:1.15;margin:0;text-wrap:balance}
+.sub{color:var(--muted);margin:2px 0 0}
+h2{font-family:var(--display);font-weight:600;font-size:24px;margin:0 0 12px;text-wrap:balance}
+h3{font-size:17px;font-weight:600;margin:20px 0 4px}
+p{margin:0 0 12px}
+ul{margin:0 0 12px;padding-left:22px}
+li{margin:4px 0}
+.summary{background:var(--oak-soft);border-radius:16px;padding:20px 22px}
+.summary h2{font-size:20px;margin-bottom:8px}
+.summary ul{list-style:none;padding:0;margin:0;display:grid;gap:8px}
+.summary li{display:flex;gap:10px;align-items:flex-start;margin:0}
+.summary li::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--oak);margin-top:9px;flex:none}
+.meta{font-size:14px;color:var(--muted)}
+section{border-top:1px solid var(--line);padding-top:28px}
+a{color:var(--oak)}
+.contact{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:16px 18px}
+code{background:var(--parch);padding:1px 6px;border-radius:5px;font-size:15px}
+
+footer{max-width:680px;margin:40px auto 0;font-size:14px;color:var(--muted)}
+nav a{margin-right:16px}
+</style>
+</head>
+<body>
+<main>
+  <section style="border-top:0;padding-top:0">
+    <h1>Page not found</h1>
+    <p>That page doesn't exist. You might be looking for:</p>
+    <ul>
+      <li><a href="/oakbook/privacy">Privacy &amp; Support</a></li>
+      <li><a href="/oakbook/security">Security overview</a></li>
+      <li><a href="/oakbook/">Oakbook home</a></li>
+    </ul>
+  </section>
+</main>
+</body>
+</html>
