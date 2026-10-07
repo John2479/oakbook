@@ -83,8 +83,8 @@ ol{margin:0 0 12px;padding-left:22px}
     <ol>
       <li>You choose a master password (at least 10 characters).</li>
       <li>Oakbook turns it into a 256-bit key with Argon2id, using a random 16-byte salt.</li>
-      <li>Your logins, notes and two-factor keys are encrypted with that key and saved as a single file on your iPhone.</li>
-      <li>When you lock Oakbook, the key is erased from memory. Without your master password (or your Face ID, if you turned it on), the file can't be opened.</li>
+      <li>Your logins, notes and two-factor keys are encrypted with that key and saved as a single file on your iPhone, iPad or Mac.</li>
+      <li>When you lock Oakbook, the key is erased from memory. Without your master password (or your Face ID or Touch ID, if you turned it on), the file can't be opened.</li>
     </ol>
   </section>
 
@@ -129,25 +129,30 @@ ol{margin:0 0 12px;padding-left:22px}
   <section>
     <h2>Face ID, Touch ID and AutoFill</h2>
     <ul>
-      <li>If you turn on Face ID or Touch ID, the vault key is kept in your iPhone's Keychain with an
-        access rule that iOS enforces: it is released only after a successful biometric match, which the
-        Secure Enclave checks. The rule also requires a device passcode.</li>
+      <li>If you turn on Face ID or Touch ID, the vault key is kept in your device's Keychain with an
+        access rule that the operating system enforces: it is released only after a successful biometric
+        match, which the Secure Enclave checks. The rule also requires a device passcode (on a Mac, your
+        login password). iPhone, iPad and Mac use the same code and the same rule; on the Mac the key is kept
+        in the iOS-style "data protection" keychain, which supports it. Touch ID unlock on a Mac needs a Mac
+        with Touch ID.</li>
       <li>That key never leaves the device and is never synced to iCloud. If you add a new face or
-        fingerprint, or remove your passcode, iOS makes the key unusable; Oakbook then removes it, and you
+        fingerprint, or remove your passcode, the system makes the key unusable; Oakbook then removes it, and you
         unlock with your master password.</li>
-      <li>Oakbook AutoFill (a Pro feature) reads the same encrypted file and gets the key only through
-        Face ID. It decrypts with Apple's CryptoKit and never sees your master password.</li>
+      <li>Oakbook AutoFill (a Pro feature, on iPhone, iPad and Mac) reads the same encrypted file and gets
+        the key only through Face ID or Touch ID. It decrypts with Apple's CryptoKit and never sees your
+        master password.</li>
     </ul>
   </section>
 
   <section>
-    <h2>Other protections on your iPhone</h2>
+    <h2>Other protections</h2>
     <ul>
-      <li><strong>iOS Data Protection:</strong> the vault file is also protected by your iPhone's own file encryption while the phone is locked.</li>
-      <li><strong>Auto-lock:</strong> after 2 minutes without use by default, and whenever you leave the app.</li>
+      <li><strong>iPhone and iPad Data Protection:</strong> the vault file is also protected by the device's own file encryption while it is locked. On a Mac, keep FileVault on for the same protection of the whole disk.</li>
+      <li><strong>Auto-lock:</strong> after 2 minutes without use by default, and whenever you leave the app (on a Mac: when you minimize the window or hide the app).</li>
       <li><strong>Wrong passwords:</strong> after 3 wrong attempts, Oakbook makes you wait, starting at 5 seconds and doubling up to 5 minutes.</li>
-      <li><strong>Clipboard:</strong> copied passwords stay on this iPhone (no Universal Clipboard) and clear after 30 seconds by default.</li>
-      <li><strong>Screen:</strong> contents are hidden in the app switcher and while the screen is recorded or mirrored.</li>
+      <li><strong>Clipboard:</strong> copied passwords stay on this device (no Universal Clipboard) and clear after 30 seconds by default. On a Mac they are also marked so clipboard-history apps don't show or keep them.</li>
+      <li><strong>Screen:</strong> on iPhone and iPad, contents are hidden in the app switcher and while the screen is recorded or mirrored. On a Mac, the window is kept out of screenshots and screen recordings for most tools (some newer capture methods may not respect this).</li>
+      <li><strong>Mac sandbox:</strong> the Mac app runs in Apple's App Sandbox with no network permission at all, so macOS itself blocks any connection by Oakbook's code.</li>
       <li><strong>Your vault never goes online:</strong> Oakbook contains no networking code, no analytics and no ads, and every vault feature works offline. The only internet connections are Apple's App Store services for Oakbook Pro: showing the price, buying, restoring purchases, redeeming codes, and Apple's own background purchase checks. They never include your vault or its contents.</li>
     </ul>
   </section>
@@ -155,7 +160,7 @@ ol{margin:0 0 12px;padding-left:22px}
   <section>
     <h2>What Oakbook can't protect against</h2>
     <ul>
-      <li>A device that is already compromised: malware, a jailbroken phone, or someone watching you type.</li>
+      <li>A device that is already compromised: malware, a jailbroken phone, an administrator account you don't control, or someone watching you type.</li>
       <li>Someone who knows your master password.</li>
       <li>A forgotten master password: it can't be recovered or reset, by anyone.</li>
       <li>CSV files you import are not encrypted. Delete them after importing.</li>
@@ -170,11 +175,13 @@ ol{margin:0 0 12px;padding-left:22px}
       tamper detection for both ciphers, a fresh nonce on every save, rejection of unsafe key settings,
       re-encryption when you switch cipher, the master password never being written to storage, the
       wrong-password waits, clipboard clearing, and erasing. The AutoFill code is also tested against vaults
-      written by the app. A code check fails the build if any iPhone security setting is removed: the
-      Keychain access rule, the local-only clipboard, iOS Data Protection, the verified purchase check, and
-      AutoFill's limits. A scan confirms the app has no networking or analytics code. What only real hardware
-      can show (Face ID, the clipboard, the screen cover, Pro working offline) is tested by hand on an iPhone
-      before each release. This page was last checked against the app's code on 7 October 2026.</p>
+      written by the app. A code check fails the build if any iPhone, iPad or Mac security setting is removed:
+      the Keychain access rule, the local-only clipboard, iOS Data Protection, the verified purchase check,
+      AutoFill's limits, and on the Mac the keychain type, clipboard markers, capture exclusion and sandbox
+      without network access. The app is also tested end to end on iPhone, iPad and Mac. A scan confirms the app has no networking or analytics code. What only real hardware
+      can show (Face ID and Touch ID, the clipboard, the screen cover, Pro working offline) is tested by hand
+      on an iPhone and a Mac before each release. This page was last checked against the app's code on
+      __EFFECTIVE_DATE__.</p>
     <p>Questions about security? Email <a href="mailto:arctfs247@gmail.com">arctfs247@gmail.com</a>.</p>
   </section>
 </main>
