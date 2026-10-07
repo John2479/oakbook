@@ -129,10 +129,12 @@ ol{margin:0 0 12px;padding-left:22px}
   <section>
     <h2>Face ID, Touch ID and AutoFill</h2>
     <ul>
-      <li>If you turn on Face ID or Touch ID, the vault key is kept in your iPhone's Keychain behind a
-        Secure Enclave rule: iOS releases it only after a successful biometric match.</li>
-      <li>That key never leaves the device and is never synced to iCloud. iOS deletes it if you add a new
-        face or fingerprint, or remove your passcode, and you then unlock with your master password.</li>
+      <li>If you turn on Face ID or Touch ID, the vault key is kept in your iPhone's Keychain with an
+        access rule that iOS enforces: it is released only after a successful biometric match, which the
+        Secure Enclave checks. The rule also requires a device passcode.</li>
+      <li>That key never leaves the device and is never synced to iCloud. If you add a new face or
+        fingerprint, or remove your passcode, iOS makes the key unusable; Oakbook then removes it, and you
+        unlock with your master password.</li>
       <li>Oakbook AutoFill (a Pro feature) reads the same encrypted file and gets the key only through
         Face ID. It decrypts with Apple's CryptoKit and never sees your master password.</li>
     </ul>
@@ -163,10 +165,16 @@ ol{margin:0 0 12px;padding-left:22px}
   <section>
     <h2>How this is checked</h2>
     <p class="note">The app uses the open-source <code>cryptography</code> library for Argon2id and both ciphers;
-      AutoFill uses Apple CryptoKit. Every build runs automated tests: encryption round trips for both
-      ciphers, wrong-password and tampered-file rejection, a fresh nonce on every save, and a check that the
-      AutoFill code opens vaults written by the app. A separate scan confirms the app contains no
-      networking or analytics code. This page was checked against the app's code on 7 October 2026.</p>
+      AutoFill uses Apple CryptoKit. Every build runs an automated test for each claim on this page that can
+      be checked in software: the default cipher and key strength, the Argon2id values above, round trips and
+      tamper detection for both ciphers, a fresh nonce on every save, rejection of unsafe key settings,
+      re-encryption when you switch cipher, the master password never being written to storage, the
+      wrong-password waits, clipboard clearing, and erasing. The AutoFill code is also tested against vaults
+      written by the app. A code check fails the build if any iPhone security setting is removed: the
+      Keychain access rule, the local-only clipboard, iOS Data Protection, the verified purchase check, and
+      AutoFill's limits. A scan confirms the app has no networking or analytics code. What only real hardware
+      can show (Face ID, the clipboard, the screen cover, Pro working offline) is tested by hand on an iPhone
+      before each release. This page was last checked against the app's code on 7 October 2026.</p>
     <p>Questions about security? Email <a href="mailto:arctfs247@gmail.com">arctfs247@gmail.com</a>.</p>
   </section>
 </main>

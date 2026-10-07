@@ -108,9 +108,11 @@ nav a{margin-right:16px}
       delete them afterwards.</p>
 
     <h3>Face ID and Touch ID</h3>
-    <p>If you turn on biometric unlock, your vault key is kept in your device's Keychain, protected by the
-      Secure Enclave. It is only released after a successful Face ID or Touch ID check, and never leaves
-      the device. Oakbook never receives your face or fingerprint data; iOS handles that check.</p>
+    <p>If you turn on biometric unlock, your vault key is kept in your iPhone's Keychain with an access rule
+      that iOS enforces: the key is released only after a successful Face ID or Touch ID match, which the
+      iPhone's Secure Enclave checks. The key stays on this device and is never synced. Oakbook never
+      receives your face or fingerprint data. Face ID is a convenience, not a way to recover a forgotten
+      master password.</p>
 
     <h3>AutoFill</h3>
     <p>AutoFill is part of Oakbook Pro. When you sign in somewhere and choose Oakbook, Face ID unlocks your
