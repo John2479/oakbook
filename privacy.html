@@ -157,9 +157,13 @@ nav a{margin-right:16px}
     <h2>Support</h2>
 
     <h3>I forgot my master password</h3>
-    <p>It can't be recovered or reset, by anyone. That is what keeps your vault safe. If Face ID unlock
-      is on, you can still open Oakbook with Face ID to see and copy your logins. Changing the master
-      password always needs the current one.</p>
+    <p>It can't be recovered or reset, by anyone. That is what keeps your vault safe. Write it down and keep
+      it somewhere safe and offline.</p>
+    <p><strong>Face ID is not a way to recover it.</strong> If Face ID unlock is still on, you can open
+      Oakbook and see and copy your logins, but you can't change the master password without the current
+      one, and your encrypted backups still need it. Face ID can also stop working at any time: when you add
+      a new face or fingerprint, remove your passcode, or reinstall the app. If you've forgotten your master
+      password but Face ID still works, copy your important passwords somewhere you trust straight away.</p>
 
     <h3>How do I turn on AutoFill?</h3>
     <ul>
@@ -199,6 +203,30 @@ nav a{margin-right:16px}
     <p>In Settings, choose <strong>Export encrypted backup</strong> and save the file somewhere you
       trust. On the new phone, install Oakbook, choose <strong>Restore from an Oakbook backup</strong>
       and enter the master password you used for that backup.</p>
+
+    <h3>Does Oakbook sync between my devices?</h3>
+    <p>No. Oakbook has no cloud, so each device keeps its own separate vault and nothing syncs
+      automatically. To copy your logins to another device, export an encrypted backup and import or
+      restore it there. Changes you make afterwards stay on the device where you made them, until you
+      export and import again.</p>
+
+    <h3>What happens when I import a backup into a vault that already has logins?</h3>
+    <p>Settings ▸ Import an Oakbook backup <em>merges</em> the backup into your current vault:</p>
+    <ul>
+      <li><strong>Logins only in the backup</strong> are added (on the free version, up to 15 in total; you're
+        told how many were left out).</li>
+      <li><strong>Logins in both</strong> (the same login, copied from this vault earlier): the most recently
+        edited version is kept.</li>
+      <li><strong>Deletions aren't remembered.</strong> If you deleted a login after making the backup, importing
+        that backup brings it back. Delete it again afterwards if you don't want it.</li>
+      <li><strong>Logins created separately</strong> on two devices are both kept, even if they're for the same
+        site. Check for duplicates afterwards.</li>
+      <li>Your current master password and settings don't change. You only need the backup's master
+        password to open it.</li>
+    </ul>
+    <p><strong>Restore from an Oakbook backup</strong> on a new install is different: it <em>replaces</em> the
+      empty vault with the backup, and the backup's master password becomes your master password on that
+      device.</p>
 
     <h3>Importing from another password manager</h3>
     <p>Export your passwords as a CSV file from Chrome, Safari, Firefox, Bitwarden, 1Password,
