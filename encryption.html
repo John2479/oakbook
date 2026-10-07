@@ -74,7 +74,7 @@ ol{margin:0 0 12px;padding-left:22px}
     <ul>
       <li><span>Your vault is one file, encrypted with 256-bit authenticated encryption: <strong>AES-256-GCM</strong> by default, or <strong>XChaCha20-Poly1305</strong> if you choose it.</span></li>
       <li><span>The key is made from your master password with <strong>Argon2id</strong>, which makes every password guess slow and memory-hungry.</span></li>
-      <li><span>Your master password is never stored, and Oakbook itself never connects to the internet.</span></li>
+      <li><span>Your master password is never stored, and your vault never goes online.</span></li>
     </ul>
   </div>
 
@@ -146,7 +146,7 @@ ol{margin:0 0 12px;padding-left:22px}
       <li><strong>Wrong passwords:</strong> after 3 wrong attempts, Oakbook makes you wait, starting at 5 seconds and doubling up to 5 minutes.</li>
       <li><strong>Clipboard:</strong> copied passwords stay on this iPhone (no Universal Clipboard) and clear after 30 seconds by default.</li>
       <li><strong>Screen:</strong> contents are hidden in the app switcher and while the screen is recorded or mirrored.</li>
-      <li><strong>No network:</strong> Oakbook contains no networking code, no analytics and no ads. The only connection is Apple's own purchase screen, if you buy Oakbook Pro.</li>
+      <li><strong>Your vault never goes online:</strong> Oakbook contains no networking code, no analytics and no ads, and every vault feature works offline. The only internet connections are Apple's App Store services for Oakbook Pro: showing the price, buying, restoring purchases, redeeming codes, and Apple's own background purchase checks. They never include your vault or its contents.</li>
     </ul>
   </section>
 
