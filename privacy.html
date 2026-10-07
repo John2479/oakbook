@@ -101,11 +101,13 @@ nav a{margin-right:16px}
       never stored. The technical details are in the <a href="encryption">Security overview</a>.</p>
     <p><strong>Backups you export:</strong> saved wherever you choose (Files, iCloud Drive, email,
       AirDrop…). They stay encrypted with your master password. Where you store them, that service's own
-      terms apply. The temporary copy Oakbook makes for sharing is deleted after two minutes.</p>
+      terms apply. The temporary copy Oakbook makes for sharing is deleted after two minutes, or the next time
+      Oakbook starts if iOS paused it first.</p>
     <p><strong>Your iPhone's backups:</strong> iCloud Backup or a computer backup may include the encrypted
       vault file, still locked with your master password. Your Face ID key is never included.</p>
-    <p><strong>CSV files you import:</strong> these are not encrypted. Oakbook reads them on your device;
-      delete them afterwards.</p>
+    <p><strong>CSV files you import:</strong> these are not encrypted. Oakbook reads them on your device.
+      iOS gives Oakbook its own copy of the file you pick; Oakbook deletes that copy as soon as it has been
+      read. The original file stays where you saved it, so delete it there afterwards.</p>
 
     <h3>Face ID and Touch ID</h3>
     <p>If you turn on biometric unlock, your vault key is kept in your iPhone's Keychain with an access rule
